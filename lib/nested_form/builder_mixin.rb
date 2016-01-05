@@ -88,6 +88,9 @@ module NestedForm
     end
 
     def fields_for_nested_model(name, object, options, block)
+      Rails.logger.info "fields_for_nested_model"
+      Rails.logger.info object.inspect
+      Rails.logger.info options.inspect
       classes = 'fields'
       classes << ' marked_for_destruction' if object.respond_to?(:marked_for_destruction?) && object.marked_for_destruction?
 
